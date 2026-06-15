@@ -1477,6 +1477,26 @@ header .container {
   display: inline-block;
 }
 
+/* --- EDUCATORS SECTION --- */
+.educators-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.educator-card {
+  background-color: var(--color-bg-light) !important;
+  border: 1px solid rgba(30, 63, 75, 0.08) !important;
+}
+
+.educator-card:hover {
+  border-color: rgba(99, 102, 241, 0.2) !important;
+}
+
+.educator-card .founder-avatar {
+  border-color: var(--color-bg-white) !important;
+}
+
 /* --- CONTACT & REGISTRATION --- */
 .contact-section {
   background-color: var(--color-bg-white);
@@ -1750,7 +1770,8 @@ footer {
   .hero-grid { gap: 2rem; }
   .graphic-bg { width: 340px; height: 340px; }
   .hero-img { max-width: 320px; }
-  .courses-grid { gap: 2rem; }
+  .courses-grid,
+  .educators-grid { gap: 2rem; }
   .founders-grid { gap: 2rem; }
   .contact-grid { gap: 2rem; }
 }
@@ -1833,7 +1854,8 @@ footer {
     order: -1; /* Display graphic above text on mobile */
   }
   
-  .courses-grid {
+  .courses-grid,
+  .educators-grid {
     grid-template-columns: 1fr;
   }
   
