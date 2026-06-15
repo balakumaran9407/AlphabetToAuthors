@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Play Zone | Interactive Curriculum Demos - Alphabet to Authors</title>
+  <meta name="description" content="Try our interactive demo activities. Speech Outline Maker and Vocabulary Word Connect games directly connected to the Alphabet to Authors English curriculum.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Play Zone Specific Overrides */
+    .playzone-page {
+      padding-top: 140px;
+      padding-bottom: 80px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- --- HEADER --- -->
+  <header id="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="logo.jpg" alt="Alphabets to Authors Logo" class="logo-img-brand">
+        <span class="logo-text">Alphabets <span class="logo-sub">To Authors</span></span>
+      </a>
+      
+      <nav class="nav-links" id="nav-links">
+        <a href="index.html#about">About</a>
+        <a href="index.html#benefits">Why Us</a>
+        <a href="index.html#courses">Courses</a>
+        <a href="playzone.html" class="active">Play Zone</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="index.html#contact" class="btn btn-primary">Enroll Now</a>
+      </div>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
+        ☰
+      </button>
+    </div>
+  </header>
+
+  <!-- --- PLAY ZONE SECTION --- -->
+  <main class="playzone-page">
+    <section class="section play-zone" id="playzone" style="background: none; padding: 0;">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Interactive Demos</span>
+          <h2 class="section-title">Play & Connect with the Curriculum</h2>
+          <p class="section-desc">
+            Try out these games that represent concepts trained in our General English, Spoken English, Public Speaking, and Creative Writing programs!
+          </p>
+        </div>
+
+        <div class="demo-tabs">
+          <button class="tab-btn active" data-tab="story-sparker">
+            <span>🎡</span> Story Adventure Sparker
+          </button>
+          <button class="tab-btn" data-tab="vocal-arena">
+            <span>🎤</span> Tongue Twister Vocal Arena
+          </button>
+          <button class="tab-btn" data-tab="debate-duels">
+            <span>🃏</span> Improv Debate Duels
+          </button>
+        </div>
+
+        <!-- Tab 1: Story Adventure Sparker -->
+        <div class="demo-panel active" id="story-sparker">
+          <div class="story-generator">
+            <div class="generator-controls">
+              <h3>Story Adventure Generator</h3>
+              <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                Design wild story settings instantly. Spin the reels to choose your Hero, Conflict, and Tool, then see how we structure narratives!
+              </p>
+              
+              <!-- Slot Machine Container -->
+              <div class="slot-machine">
+                <div class="reel-box">
+                  <div class="reel-label">HERO</div>
+                  <div class="reel" id="reel-hero">
+                    <div class="reel-content">A tiny detective squirrel 🐿️</div>
+                  </div>
+                </div>
+                <div class="reel-box">
+                  <div class="reel-label">CONFLICT</div>
+                  <div class="reel" id="reel-conflict">
+                    <div class="reel-content">Lost their voice before a speech 🤫</div>
+                  </div>
+                </div>
+                <div class="reel-box">
+                  <div class="reel-label">TOOL</div>
+                  <div class="reel" id="reel-tool">
+                    <div class="reel-content">An animal translator dictionary 📖</div>
+                  </div>
+                </div>
+              </div>
+
+              <button class="btn btn-primary btn-generate" id="btn-spin-reels" style="margin-top: 1.5rem;">
+                <span>🎡</span> Spin the Story Sparker!
+              </button>
+            </div>
+            
+            <div class="tool-output" id="story-output">
+              <div class="output-placeholder" id="story-placeholder">
+                <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.656 48.656 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3"></path></svg>
+                <p>Spin the wheels to build a custom narrative combination!</p>
+              </div>
+              <div class="output-content" id="story-result">
+                <div class="speech-map-header">
+                  <h4>Your Story Adventure Outline</h4>
+                  <p style="font-size: 0.9rem; color: var(--color-primary-dark); font-weight: 700; margin-top: 0.5rem;" id="story-prompt-text"></p>
+                </div>
+                <div class="story-mountain">
+                  <div class="mountain-step">
+                    <h5>⛰️ 1. The Hook (Introduction)</h5>
+                    <p id="sm-intro"></p>
+                  </div>
+                  <div class="mountain-step">
+                    <h5>⛰️ 2. The Build-Up (Rising Action)</h5>
+                    <p id="sm-build"></p>
+                  </div>
+                  <div class="mountain-step">
+                    <h5>⛰️ 3. The Peak (Climax)</h5>
+                    <p id="sm-climax" style="border-left-color: var(--color-danger); background-color: rgba(194, 47, 47, 0.04);"></p>
+                  </div>
+                  <div class="mountain-step">
+                    <h5>⛰️ 4. The Descent (Falling Action)</h5>
+                    <p id="sm-fall"></p>
+                  </div>
+                  <div class="mountain-step">
+                    <h5>⛰️ 5. The Resolution (Moral/Outcome)</h5>
+                    <p id="sm-resolution" style="border-left-color: var(--color-success); background-color: rgba(15, 118, 84, 0.04);"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Tongue Twister Vocal Arena -->
+        <div class="demo-panel" id="vocal-arena">
+          <div class="vocal-arena-tool">
+            <div class="arena-controls">
+              <h3>Vocal Clarity Arena</h3>
+              <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                Train your voice modulation. Choose a tongue twister, toggle performance modes to see typographical guidance, and test your speech clarity using your microphone!
+              </p>
+              
+              <div class="level-selectors" style="display: flex; gap: 0.75rem; margin-bottom: 1.5rem;">
+                <button class="filter-btn active" id="twister-easy-btn" data-level="easy">Level 1: Easy</button>
+                <button class="filter-btn" id="twister-med-btn" data-level="medium">Level 2: Medium</button>
+                <button class="filter-btn" id="twister-hard-btn" data-level="hard">Level 3: Expert</button>
+              </div>
+
+              <!-- Twister Card Display -->
+              <div class="twister-card-container">
+                <div class="twister-card" id="twister-text-card">
+                  "Friendly frogs fly fast."
+                </div>
+              </div>
+
+              <!-- Modulator Options -->
+              <div style="margin-top: 1.5rem;">
+                <label style="font-weight: 700; font-size: 0.9rem; color: var(--color-text-dark); display: block; margin-bottom: 0.5rem;">Performance Modulation Mode</label>
+                <div class="modulation-buttons" style="display: flex; gap: 0.75rem;">
+                  <button class="tab-btn active" data-mod="normal" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Default Mode</button>
+                  <button class="tab-btn" data-mod="project" style="padding: 0.5rem 1rem; font-size: 0.9rem;">🔊 Projecting Voice</button>
+                  <button class="tab-btn" data-mod="speed" style="padding: 0.5rem 1rem; font-size: 0.9rem;">⚡ Rapid Speed</button>
+                  <button class="tab-btn" data-mod="whisper" style="padding: 0.5rem 1rem; font-size: 0.9rem;">🤫 Whisper Power</button>
+                </div>
+              </div>
+
+              <!-- Record Buttons -->
+              <div style="margin-top: 2rem; display: flex; gap: 1rem; align-items: center;">
+                <button class="btn btn-primary" id="btn-record-speech" style="background-color: var(--color-danger); box-shadow: 0 4px 12px rgba(194, 47, 47, 0.3);">
+                  <span id="mic-icon">🎤</span> <span id="record-btn-text">Start Speaking Challenge</span>
+                </button>
+                <button class="btn btn-secondary" id="btn-stop-record" style="display: none;">Stop</button>
+              </div>
+            </div>
+
+            <div class="tool-output" id="vocal-output">
+              <div class="speech-status-indicator" id="rec-status-indicator" style="display: none;">
+                <span class="pulse-dot"></span>
+                <span id="rec-status-text">Listening... Speak now!</span>
+              </div>
+              <div class="output-placeholder" id="vocal-placeholder">
+                <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z"></path></svg>
+                <p>Click "Start Speaking Challenge" and read the twister aloud to test your clarity!</p>
+              </div>
+              <div class="output-content" id="vocal-result">
+                <div class="speech-map-header">
+                  <h4>Speech Recognition Results</h4>
+                  <div class="speech-score-badge" id="vocal-score-badge">Clarity: 0%</div>
+                </div>
+                <div style="margin-top: 1rem;">
+                  <h5 style="text-transform: uppercase; font-size: 0.85rem; color: var(--color-accent-dark); font-weight: 800; letter-spacing: 0.5px; margin-bottom: 0.5rem;">What We Heard</h5>
+                  <p id="vocal-transcript" style="font-size: 0.95rem; color: var(--color-text-dark); background-color: var(--color-bg-white); padding: 1rem; border-radius: var(--border-radius-sm); border-left: 3px solid var(--color-primary); min-height: 50px; font-style: italic;"></p>
+                </div>
+                <div style="margin-top: 1rem;">
+                  <h5 style="text-transform: uppercase; font-size: 0.85rem; color: var(--color-secondary-dark); font-weight: 800; letter-spacing: 0.5px; margin-bottom: 0.5rem;">Coach's Feedback</h5>
+                  <p id="vocal-feedback" style="font-size: 0.95rem; font-weight: 600;"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Improv Debate Duels -->
+        <div class="demo-panel" id="debate-duels">
+          <div class="debate-duels-tool">
+            <div class="debate-controls">
+              <h3>Improv Debate Duels</h3>
+              <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                Sharpen critical logic and debate structures. Draw a debate card, flip it to explore Pro vs Con arguments, and see how our structures organize your thoughts.
+              </p>
+              <button class="btn btn-primary" id="btn-draw-debate">
+                <span>🃏</span> Draw Improv Debate Card
+              </button>
+
+              <div class="debate-structures-box" style="margin-top: 2rem; display: none;" id="debate-structure-guide">
+                <h4 style="font-size: 1.1rem; color: var(--color-primary-dark); margin-bottom: 0.75rem;">Argument Structuring Framework</h4>
+                <p style="font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.5;">
+                  We use the <strong>PEEL Structure</strong> to build convincing debate responses:
+                </p>
+                <div class="peel-bullets" style="margin-top: 0.75rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.85rem;">
+                  <div><strong>P</strong>oint: The core statement</div>
+                  <div><strong>E</strong>xplanation: Detailed reasoning</div>
+                  <div><strong>E</strong>xample: Concrete evidence</div>
+                  <div><strong>L</strong>ink: Connect back to topic</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="debate-card-holder">
+              <!-- Flipping Card Wrapper -->
+              <div class="flip-card" id="debate-flip-card">
+                <div class="flip-card-inner">
+                  <!-- Front: Instructions / Card Back Graphic -->
+                  <div class="flip-card-front">
+                    <div class="card-graphic">
+                      <div class="card-graphic-circle">?</div>
+                      <p style="font-weight: 800; margin-top: 1rem; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1.5px;">Improv Card Stack</p>
+                      <p style="font-size: 0.8rem; opacity: 0.75; font-weight: 500; margin-top: 0.5rem;">Draw a card to flip and explore debate topics!</p>
+                    </div>
+                  </div>
+                  <!-- Back: The Topic Content -->
+                  <div class="flip-card-back">
+                    <div class="card-content-wrap">
+                      <span class="card-category-badge" id="debate-card-badge">Kids Debate</span>
+                      <h4 id="debate-card-topic">Should school homework be banned?</h4>
+                      <p style="font-size: 0.85rem; opacity: 0.9; margin-top: 0.25rem;">Explore arguments structured using the PEEL framework:</p>
+                      
+                      <div class="debate-view-toggle">
+                        <button class="toggle-side-btn active" data-side="pro">PRO (Affirmative)</button>
+                        <button class="toggle-side-btn" data-side="con">CON (Negative)</button>
+                      </div>
+
+                      <div class="debate-argument-output">
+                        <div class="argument-peel-item">
+                          <strong>Point:</strong>
+                          <span id="peel-p">...</span>
+                        </div>
+                        <div class="argument-peel-item">
+                          <strong>Explanation:</strong>
+                          <span id="peel-e">...</span>
+                        </div>
+                        <div class="argument-peel-item">
+                          <strong>Example:</strong>
+                          <span id="peel-ex">...</span>
+                        </div>
+                        <div class="argument-peel-item">
+                          <strong>Link:</strong>
+                          <span id="peel-l">...</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- --- FOOTER --- -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <img src="logo.jpg" alt="Alphabets to Authors Logo" class="logo-img-brand footer-logo-img">
+            <span class="logo-text">Alphabets <span>To Authors</span></span>
+          </div>
+          <p class="footer-desc">
+            An activity-based learning community helping students master standard communication tools, creative thinking, and verbal logic. Unleash the storyteller in your child.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <nav class="footer-links">
+            <a href="index.html#about">About Mentors</a>
+            <a href="index.html#benefits">Course Benefits</a>
+            <a href="index.html#courses">Courses Overview</a>
+            <a href="playzone.html">Interactive Demos</a>
+            <a href="index.html#contact">Enroll / Register</a>
+          </nav>
+        </div>
+        <div class="footer-col">
+          <h4>Program Contact</h4>
+          <p>📍 Online Lessons from the comfort of your home</p>
+          <p>📞 Phone: +91 86670 26579</p>
+          <p>✉️ Email: alphabetstoauthors@gmail.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Alphabets to Authors. All rights reserved.</p>
+        <p>Created by Dhivyadharshini S & Sivaramakrishnan S</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="playzone.js"></script>
+  <script>
+    // Navigation toggle logic (simplified for playzone page)
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+    });
+  </script>
+</body>
+</html>
