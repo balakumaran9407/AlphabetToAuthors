@@ -2139,3 +2139,39 @@ input:focus, select:focus, textarea:focus {
     transform: translateX(-50%) !important;
   }
 }
+
+
+/* --- CRITICAL LAYOUT OVERFLOW FIXES --- */
+/* Ensure long emails and links do not force the container to expand past the screen width */
+.contact-text a, .contact-text p, p {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Ensure form inputs, especially select dropdowns with long options, do not break the grid width */
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.form-group {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden; /* Prevent child overflow */
+}
+
+.contact-card, .contact-form-box {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Reset the flex-direction changes that might cause wrapping issues */
+@media (max-width: 768px) {
+  .contact-info {
+    width: 100%;
+  }
+}
