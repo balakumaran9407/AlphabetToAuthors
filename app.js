@@ -402,7 +402,7 @@ if (enrollmentForm) {
   const messageVal = document.getElementById('message').value || "None";
   
   // Format WhatsApp message text
-  const waMessage = `Hi Alphabet to Authors! 📚✨\n\nI would like to register my child for a course/demo session. Here are our registration details:\n\n👤 *Parent's Name:* ${parentName}\n👦 *Child's Name:* ${childName}\n👶 *Child's Age:* ${childAge} years\n🎓 *Selected Course:* ${selectedCourse}\n💬 *Questions/Preferences:* ${messageVal}\n\nPlease check slot availability and contact me. Thank you!`;
+  const waMessage = `Hi Alphabet to Authors! 📚✨\n\nI would like to register for a course/demo session. Here are our registration details:\n\n👤 *Parent's Name:* ${parentName}\n🎓 *Participant's Name:* ${childName}\n🎂 *Participant's Age:* ${childAge} years\n⭐ *Selected Course:* ${selectedCourse}\n💬 *Questions/Preferences:* ${messageVal}\n\nPlease check slot availability and contact me. Thank you!`;
   
   // URL encode message parameter
   const encodedText = encodeURIComponent(waMessage);
