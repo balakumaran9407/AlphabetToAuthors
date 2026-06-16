@@ -388,7 +388,7 @@ if (enrollmentForm) {
     const submitBtn = enrollmentForm.querySelector('button[type="submit"]');
     const originalText = submitBtn ? submitBtn.innerHTML : '';
     if (submitBtn) {
-      submitBtn.innerHTML = '<span>⏳</span> Preparing WhatsApp...';
+      submitBtn.innerHTML = 'Preparing WhatsApp...';
       submitBtn.style.pointerEvents = 'none';
       submitBtn.style.opacity = '0.8';
     }
