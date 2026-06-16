@@ -2084,82 +2084,58 @@ input:focus, select:focus, textarea:focus {
 }
 
 
+
 /* --- MOBILE GLOBAL CENTER ALIGNMENT --- */
 @media (max-width: 768px) {
-  /* Global center alignment for sections */
-  .section-header, 
-  .section-desc, 
-  .hero-content, 
-  .benefit-card, 
-  .founder-card, 
-  .course-card, 
-  .contact-card,
-  .contact-form-box,
-  .footer-col {
+  /* Ensure all typography is centered */
+  h1, h2, h3, h4, h5, h6, p, .section-badge, .course-age-badge, .price-tier, label {
     text-align: center !important;
+  }
+
+  /* Center block elements that have max-width */
+  .section-header, .section-desc, .hero-desc, .founders-intro p {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* Center Flex containers */
+  .hero-content, 
+  .hero-cta,
+  .benefit-card, 
+  .course-card, 
+  .founder-card,
+  .contact-card,
+  .contact-detail,
+  .contact-info,
+  .footer-col,
+  .footer-logo,
+  .footer-links,
+  .founders-intro {
+    display: flex !important;
+    flex-direction: column !important;
     align-items: center !important;
+    justify-content: center !important;
   }
 
-  /* Center course details */
-  .course-header,
-  .course-body,
-  .course-prices,
-  .course-stats,
-  .card-explore-hint {
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  /* Course Stats flex centering */
-  .course-stats {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  .stat-item {
-    justify-content: center;
+  /* Fix icons and avatars margins */
+  .benefit-icon, .contact-icon, .founder-avatar {
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 
-  /* Center the benefit card content */
-  .benefit-card h3, .benefit-card p {
-    text-align: center;
-  }
-  .benefit-icon {
-    margin-left: auto;
-    margin-right: auto;
+  /* Fix inline block elements */
+  .hero-badge, .section-badge, .founder-degree {
+    align-self: center !important;
   }
 
-  /* Founders/Educators centering */
-  .founders-intro h2, .founders-intro p, .founder-degree, .founder-role {
-    text-align: center;
-    justify-content: center;
-  }
-
-  /* Contact centering */
-  .contact-text h4, .contact-text p, .contact-info h2, .contact-info p {
+  /* Reset form alignment for inputs to not look weird, just center the labels */
+  .form-group input, .form-group select, .form-group textarea {
     text-align: center;
   }
 
-  /* Form elements centering */
-  .form-group label {
-    text-align: center;
-    display: block;
-    width: 100%;
-  }
-  
-  /* Footer centering */
-  .footer-logo {
-    justify-content: center;
-  }
+  /* Footer specifics */
   .footer-col h4::after {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .footer-links {
-    align-items: center;
-  }
-  .footer-bottom {
-    justify-content: center;
-    text-align: center;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
   }
 }
