@@ -86,14 +86,14 @@ filterButtons.forEach(btn => {
 const coursesData = {
   junior_explorer: {
     title: "The Language Leap: Junior Explorer Edition",
-    subtitle: "General English course for kids",
+    subtitle: "Foundational English & Language Mastery",
     age: "Ages 5 - 8",
     category: "general-english",
     classCategory: "category-english",
     duration: "21 Days",
     schedule: "Monday - Friday",
     fee: "Group class: ₹2,500 | Individual class: ₹3,500",
-    description: "Nurture confidence and correct language habits in young minds. This course uses activity-based, play-centric instruction to build early sentences, correct mouth stretching (for phonetics), and active listening focus.",
+    description: "Nurture confidence and instil impeccable language habits in young minds. This immersive program uses activity-based, play-centric instruction to build early sentence structure, master phonetics, and develop active listening skills for a strong English foundation.",
     syllabus: [
       "Stretch your mouth", "Basics of sentences", "Talk with rhythm",
       "Everyday vocabulary reset", "Live the Present", "Go back to the Past",
@@ -105,14 +105,14 @@ const coursesData = {
   },
   wordsmiths: {
     title: "The Language Leap: The Wordsmiths",
-    subtitle: "General English course for older kids",
+    subtitle: "Advanced English & Language Mastery",
     age: "Ages 8 - 15",
     category: "general-english",
     classCategory: "category-english",
     duration: "21 Days",
     schedule: "Monday - Friday",
     fee: "Group class: ₹2,500 | Individual class: ₹3,500",
-    description: "Formulate thoughts into fluent spoken and written English. Tailored for older children, this course targets translation-free speech, public announcements, structured essay basics, and grammatical precision.",
+    description: "Formulate complex thoughts into fluent, articulate spoken and written English. Tailored for older children, this program focuses on translation-free speech, confident public announcements, structured essay composition, and advanced grammatical precision.",
     syllabus: [
       "Stretch your mouth", "Basics of sentences", "Talk with rhythm",
       "Everyday vocabulary reset", "Live the Present", "Go back to the Past",
@@ -124,14 +124,14 @@ const coursesData = {
   },
   word_wizards: {
     title: "Word Wizards and Story Smiths",
-    subtitle: "Creative writing & storytelling for kids",
+    subtitle: "Advanced Storytelling & Creative Expression",
     age: "Ages 8 - 15",
     category: "public-speaking",
     classCategory: "category-speaking",
     duration: "10 Days",
     schedule: "Saturdays & Sundays",
     fee: "Course fee: ₹1,500",
-    description: "Equip your child to build imaginary worlds and pen down compelling narratives. Focuses on storytelling principles, structure grids (Story Mountain), character shadowing, and drafting hooks.",
+    description: "Equip your child to construct vivid imaginary worlds and author compelling narratives. This program dives deep into storytelling principles, structural grids like the Story Mountain, character shadowing, and crafting irresistible narrative hooks.",
     syllabus: [
       { step: "Day 1", topic: "Sparking the Engine" },
       { step: "Day 2", topic: "The Heart of the Story" },
@@ -147,14 +147,14 @@ const coursesData = {
   },
   young_orators: {
     title: "Young Orators & Debaters",
-    subtitle: "Public speaking & debate for kids",
+    subtitle: "Confident Oratory & Debate Dynamics",
     age: "Ages 8 - 15",
     category: "public-speaking",
     classCategory: "category-speaking",
     duration: "10 Days",
     schedule: "Monday - Friday",
     fee: "Course fee: ₹1,500",
-    description: "Transform public speaking fear into impactful verbal arguments. Kids learn vocal dynamics, superhero posture, confidence mappings, audience hook methods, and live debate fundamentals.",
+    description: "Transform the fear of public speaking into impactful verbal mastery. Students develop vocal dynamics, commanding posture, confidence mapping, audience engagement techniques, and the fundamental frameworks of live debate.",
     syllabus: [
       "Introduction to Public Speaking", "Your voice is your power",
       "Your emotions and expressions are the key", "Stand like a super hero",
@@ -164,14 +164,14 @@ const coursesData = {
   },
   impactful_executive: {
     title: "The Impactful Executive",
-    subtitle: "Public speaking for professionals",
+    subtitle: "Executive Presence & Corporate Articulation",
     age: "Professionals / Adults",
     category: "public-speaking",
     classCategory: "category-speaking",
     duration: "5 Days",
     schedule: "Saturdays & Sundays",
     fee: "Course fee: ₹1,500",
-    description: "Designed for corporate leaders and professionals looking to sharpen executive presence. Focuses on brief, clear verbal delivery, stage fright solutions, body language, and Q&A management.",
+    description: "Designed exclusively for corporate leaders and professionals aiming to elevate their executive presence. This program focuses on concise verbal delivery, overcoming stage fright, mastering body language, and commanding high-stakes Q&A sessions.",
     syllabus: [
       { step: "Day 1", topic: "Cracking the Stage Fright Code" },
       { step: "Day 2", topic: "Structural Clarity & The Art of Executive Brevity" },
@@ -182,14 +182,14 @@ const coursesData = {
   },
   chatty_champions: {
     title: "Chatty Champions",
-    subtitle: "Spoken English for kids",
+    subtitle: "Conversational Fluency & Social Confidence",
     age: "Kids Spoken English",
     category: "spoken-english",
     classCategory: "category-spoken",
     duration: "16 Days",
     schedule: "Thursdays & Fridays",
     fee: "Course fee: ₹1,700",
-    description: "Develop natural social confidence in spoken English. Activity-focused training targeting small talk, debate structures, vocal mechanics, and interactive showstopper speeches.",
+    description: "Cultivate natural, charismatic social confidence in spoken English. This highly interactive program targets the art of small talk, expressive vocal mechanics, and delivering show-stopping speeches with ease and flair.",
     syllabus: [
       { step: "Week 1", topic: "Me and My World" },
       { step: "Week 2", topic: "The Social Butterfly" },
@@ -203,14 +203,14 @@ const coursesData = {
   },
   master_english: {
     title: "Corporate & Casual: Master Everyday English",
-    subtitle: "Spoken English for adults",
+    subtitle: "Professional Fluency & Global Communication",
     age: "Adults Spoken English",
     category: "spoken-english",
     classCategory: "category-spoken",
     duration: "8 Days",
     schedule: "Saturdays & Sundays",
     fee: "Course fee: ₹2,000",
-    description: "Enhance professional presence, meeting updates, assertive expressions, and negotiation dialogue. Designed to deliver global spoken fluency, virtual etiquettes, and general confidence.",
+    description: "Enhance your professional presence, assertive expression, and negotiation dialogue. Designed to deliver global spoken fluency, polished virtual meeting etiquette, and unshakeable confidence in any speaking environment.",
     syllabus: [
       { step: "Week 1", topic: "Professional Presence & Small Talk" },
       { step: "Week 2", topic: "Meetings, Updates, & Expressing Opinions Assertively" },
@@ -220,14 +220,14 @@ const coursesData = {
   },
   grammar_games: {
     title: "Grammar Games & Vocabulary Vocals",
-    subtitle: "Basic Grammar course for kids",
+    subtitle: "Core Grammar & Vocabulary Architecture",
     age: "Grammar & Vocab",
     category: "general-english",
     classCategory: "category-english",
     duration: "6 Weeks",
     schedule: "Tuesdays & Wednesdays",
     fee: "Course fee: ₹2,000",
-    description: "Play-centric basic grammar course covering Noun Town, Verb Vibes, Adjectives, Subject-Verb constraints, Pronouns, and final grand orchestrations.",
+    description: "A dynamic, play-centric grammar intensive that turns complex rules into engaging challenges. Covering essential building blocks from nouns and verbs to advanced sentence mechanics and grand linguistic orchestrations.",
     syllabus: [
       { step: "Week 1", topic: "The Noun Town & Sound Safaris" },
       { step: "Week 2", topic: "Action Actors & The Verb Vibes" },
@@ -383,7 +383,16 @@ window.addEventListener('keydown', (e) => {
 // --- WHATSAPP REGISTER FORM HANDLER ---
 const enrollmentForm = document.getElementById('enrollment-form');
 
-enrollmentForm.addEventListener('submit', (e) => {
+if (enrollmentForm) {
+  enrollmentForm.addEventListener('submit', (e) => {
+    const submitBtn = enrollmentForm.querySelector('button[type="submit"]');
+    const originalText = submitBtn ? submitBtn.innerHTML : '';
+    if (submitBtn) {
+      submitBtn.innerHTML = '<span>⏳</span> Preparing WhatsApp...';
+      submitBtn.style.pointerEvents = 'none';
+      submitBtn.style.opacity = '0.8';
+    }
+
   e.preventDefault();
   
   const parentName = document.getElementById('parent-name').value;
@@ -404,4 +413,37 @@ enrollmentForm.addEventListener('submit', (e) => {
   
   // Open in new tab/redirect
   window.open(whatsappUrl, '_blank');
+
+  if (submitBtn) {
+    setTimeout(() => {
+      submitBtn.innerHTML = originalText;
+      submitBtn.style.pointerEvents = 'auto';
+      submitBtn.style.opacity = '1';
+    }, 2000);
+  }
+  });
+}
+
+// --- SCROLL ANIMATIONS ---
+const scrollElements = document.querySelectorAll('.animate-on-scroll');
+const elementInView = (el, dividend = 1) => {
+  const elementTop = el.getBoundingClientRect().top;
+  return (elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend);
+};
+const displayScrollElement = (element) => {
+  element.classList.add('is-visible');
+};
+const handleScrollAnimation = () => {
+  scrollElements.forEach((el) => {
+    if (elementInView(el, 1.15)) {
+      displayScrollElement(el);
+    }
+  })
+}
+window.addEventListener('scroll', () => {
+  handleScrollAnimation();
 });
+window.addEventListener('load', () => {
+  handleScrollAnimation();
+});
+
