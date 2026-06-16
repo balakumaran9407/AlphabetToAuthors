@@ -2082,3 +2082,84 @@ input:focus, select:focus, textarea:focus {
   /* Prevent horizontal scroll */
   body, html { overflow-x: hidden; width: 100%; }
 }
+
+
+/* --- MOBILE GLOBAL CENTER ALIGNMENT --- */
+@media (max-width: 768px) {
+  /* Global center alignment for sections */
+  .section-header, 
+  .section-desc, 
+  .hero-content, 
+  .benefit-card, 
+  .founder-card, 
+  .course-card, 
+  .contact-card,
+  .contact-form-box,
+  .footer-col {
+    text-align: center !important;
+    align-items: center !important;
+  }
+
+  /* Center course details */
+  .course-header,
+  .course-body,
+  .course-prices,
+  .course-stats,
+  .card-explore-hint {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Course Stats flex centering */
+  .course-stats {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .stat-item {
+    justify-content: center;
+  }
+
+  /* Center the benefit card content */
+  .benefit-card h3, .benefit-card p {
+    text-align: center;
+  }
+  .benefit-icon {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Founders/Educators centering */
+  .founders-intro h2, .founders-intro p, .founder-degree, .founder-role {
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* Contact centering */
+  .contact-text h4, .contact-text p, .contact-info h2, .contact-info p {
+    text-align: center;
+  }
+
+  /* Form elements centering */
+  .form-group label {
+    text-align: center;
+    display: block;
+    width: 100%;
+  }
+  
+  /* Footer centering */
+  .footer-logo {
+    justify-content: center;
+  }
+  .footer-col h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .footer-links {
+    align-items: center;
+  }
+  .footer-bottom {
+    justify-content: center;
+    text-align: center;
+  }
+}
