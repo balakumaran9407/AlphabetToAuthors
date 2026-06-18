@@ -2105,7 +2105,6 @@ input:focus, select:focus, textarea:focus {
   .hero-content, 
   .hero-cta,
   .benefit-card, 
-  .course-card, 
   .founder-card,
   .contact-card,
   .contact-detail,
@@ -2118,6 +2117,10 @@ input:focus, select:focus, textarea:focus {
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
+  }
+
+  .course-stats {
+    justify-content: center;
   }
 
   /* Fix icons and avatars margins */
