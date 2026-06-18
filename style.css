@@ -563,7 +563,7 @@ header .container {
 }
 
 .course-card.hidden {
-  display: none;
+  display: none !important;
 }
 
 .course-card:hover {
