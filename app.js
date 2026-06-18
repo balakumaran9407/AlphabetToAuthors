@@ -301,7 +301,7 @@ function openModal(courseId) {
     </div>
     <div class="modal-footer-section">
       <button type="button" class="btn btn-secondary" id="modal-cancel-btn" style="margin-right: 0.75rem;">Close</button>
-      <a href="#contact?course=${courseId}" class="btn btn-primary" id="modal-enroll-btn">Enroll / Book Demo Slot</a>
+      <a href="javascript:void(0)" class="btn btn-primary" id="modal-enroll-btn">Enroll / Book Demo Slot</a>
     </div>
   `;
 
@@ -320,7 +320,8 @@ function openModal(courseId) {
 
   // Attach modal footer enroll and cancel click listeners
   document.getElementById('modal-cancel-btn').addEventListener('click', closeModal);
-  document.getElementById('modal-enroll-btn').addEventListener('click', () => {
+  document.getElementById('modal-enroll-btn').addEventListener('click', (e) => {
+    e.preventDefault();
     closeModal();
     // Pre-fill course selection from the URL query in form handler
     const courseSelect = document.getElementById('course-select');
@@ -337,6 +338,14 @@ function openModal(courseId) {
     if (courseSelect && courseMap[courseId]) {
       courseSelect.value = courseMap[courseId];
     }
+    
+    // Smooth scroll to contact section
+    setTimeout(() => {
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 300);
   });
 }
 
