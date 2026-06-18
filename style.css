@@ -1775,8 +1775,8 @@ footer {
 
 .testimonials-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
   margin-top: 2rem;
 }
 
@@ -1866,6 +1866,7 @@ footer {
   .hero-img { max-width: 320px; }
   .courses-grid,
   .educators-grid { gap: 2rem; }
+  .testimonials-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
   .founders-grid { gap: 2rem; }
   .contact-grid { gap: 2rem; }
 }
@@ -1902,11 +1903,16 @@ footer {
     flex-direction: column;
     padding: 3rem 1.5rem;
     gap: 2rem;
-    transition: var(--transition-normal);
-    box-shadow: var(--shadow-lg);
+    transition: left var(--transition-normal);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     z-index: 999;
   }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
   
+  /* Make logo clickable area smaller on mobile */
   .nav-links.active {
     left: 0;
   }
