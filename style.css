@@ -1778,16 +1778,17 @@ footer {
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin-top: 2rem;
+  align-items: start;
 }
 
 .testimonials-grid.limit-reviews .testimonial-card:nth-child(n+4) {
-  display: none;
+  display: none !important;
 }
 
 .testimonial-card {
   background-color: var(--color-bg-white);
   border-radius: var(--border-radius-lg);
-  padding: 2.5rem;
+  padding: 2rem;
   box-shadow: var(--shadow-sm);
   border: 1px solid rgba(226, 232, 240, 0.6);
   display: flex;
