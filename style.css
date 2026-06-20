@@ -1780,6 +1780,10 @@ footer {
   margin-top: 2rem;
 }
 
+.testimonials-grid.limit-reviews .testimonial-card:nth-child(n+4) {
+  display: none;
+}
+
 .testimonial-card {
   background-color: var(--color-bg-white);
   border-radius: var(--border-radius-lg);

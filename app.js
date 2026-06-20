@@ -557,3 +557,16 @@ if (feedbackForm) {
 window.addEventListener('DOMContentLoaded', () => {
   loadFeedbacks();
 });
+
+// --- LOAD MORE REVIEWS HANDLER ---
+const loadMoreBtn = document.getElementById('load-more-reviews-btn');
+if (loadMoreBtn && testimonialsGrid) {
+  loadMoreBtn.addEventListener('click', () => {
+    testimonialsGrid.classList.toggle('limit-reviews');
+    if (testimonialsGrid.classList.contains('limit-reviews')) {
+      loadMoreBtn.textContent = 'View More Reviews';
+    } else {
+      loadMoreBtn.textContent = 'Show Less';
+    }
+  });
+}
