@@ -1781,6 +1781,13 @@ footer {
   align-items: start;
 }
 
+.testimonials-grid:not(.limit-reviews) {
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  padding-bottom: 1rem;
+}
+
 .testimonials-grid.limit-reviews .testimonial-card:nth-child(n+4) {
   display: none !important;
 }
