@@ -494,7 +494,11 @@ function addFeedbackToDOM(feedback) {
     </div>
   `;
   if (testimonialsGrid) {
-    testimonialsGrid.prepend(card);
+    if (feedback.rating === 5) {
+      testimonialsGrid.prepend(card);
+    } else {
+      testimonialsGrid.append(card);
+    }
   }
 }
 
