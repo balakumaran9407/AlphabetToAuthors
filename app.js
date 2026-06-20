@@ -1,3 +1,20 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, addDoc, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+// TODO: Replace the following with your app's Firebase project configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDDR9GXXbr-EOQ51qtBmWLyOfNYzB6IwHw",
+  authDomain: "alphabettoauthors.firebaseapp.com",
+  projectId: "alphabettoauthors",
+  storageBucket: "alphabettoauthors.firebasestorage.app",
+  messagingSenderId: "800982445059",
+  appId: "1:800982445059:web:b3d26c25bbba8426d3f236"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
 // --- GLOBAL NAVIGATION ---
 const header = document.getElementById('header');
 const menuToggle = document.getElementById('menu-toggle');
@@ -42,7 +59,7 @@ window.addEventListener('DOMContentLoaded', () => {
     };
     if (courseMap[courseParam]) {
       courseSelect.value = courseMap[courseParam];
-      
+
       // Smooth scroll to contact section
       setTimeout(() => {
         const contactSection = document.getElementById('contact');
@@ -338,7 +355,7 @@ function openModal(courseId) {
     if (courseSelect && courseMap[courseId]) {
       courseSelect.value = courseMap[courseId];
     }
-    
+
     // Smooth scroll to contact section
     setTimeout(() => {
       const contactSection = document.getElementById('contact');
@@ -402,34 +419,34 @@ if (enrollmentForm) {
       submitBtn.style.opacity = '0.8';
     }
 
-  e.preventDefault();
-  
-  const parentName = document.getElementById('parent-name').value;
-  const childName = document.getElementById('child-name-input').value;
-  const childAge = document.getElementById('child-age').value;
-  const selectedCourse = document.getElementById('course-select').value;
-  const messageVal = document.getElementById('message').value || "None";
-  
-  // Format WhatsApp message text
-  const waMessage = `Hello Alphabets to Authors Team,\n\nI am reaching out to register for an upcoming course/demo session. Please find the registration details below:\n\n*Parent/Guardian Name:* ${parentName}\n*Participant's Name:* ${childName}\n*Participant's Age:* ${childAge} years\n*Selected Course:* ${selectedCourse}\n*Questions/Preferences:* ${messageVal}\n\nKindly confirm slot availability and further enrollment steps.\n\nThank you.`;
-  
-  // URL encode message parameter
-  const encodedText = encodeURIComponent(waMessage);
-  
-  // Alphabet to Authors Official Number: 8667026579 (Format: 918667026579 for global WhatsApp API)
-  const targetPhone = "918667026579";
-  const whatsappUrl = `https://api.whatsapp.com/send?phone=${targetPhone}&text=${encodedText}`;
-  
-  // Open in new tab/redirect
-  window.open(whatsappUrl, '_blank');
+    e.preventDefault();
 
-  if (submitBtn) {
-    setTimeout(() => {
-      submitBtn.innerHTML = originalText;
-      submitBtn.style.pointerEvents = 'auto';
-      submitBtn.style.opacity = '1';
-    }, 2000);
-  }
+    const parentName = document.getElementById('parent-name').value;
+    const childName = document.getElementById('child-name-input').value;
+    const childAge = document.getElementById('child-age').value;
+    const selectedCourse = document.getElementById('course-select').value;
+    const messageVal = document.getElementById('message').value || "None";
+
+    // Format WhatsApp message text
+    const waMessage = `Hello Alphabets to Authors Team,\n\nI am reaching out to register for an upcoming course/demo session. Please find the registration details below:\n\n*Parent/Guardian Name:* ${parentName}\n*Participant's Name:* ${childName}\n*Participant's Age:* ${childAge} years\n*Selected Course:* ${selectedCourse}\n*Questions/Preferences:* ${messageVal}\n\nKindly confirm slot availability and further enrollment steps.\n\nThank you.`;
+
+    // URL encode message parameter
+    const encodedText = encodeURIComponent(waMessage);
+
+    // Alphabet to Authors Official Number: 8667026579 (Format: 918667026579 for global WhatsApp API)
+    const targetPhone = "918667026579";
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${targetPhone}&text=${encodedText}`;
+
+    // Open in new tab/redirect
+    window.open(whatsappUrl, '_blank');
+
+    if (submitBtn) {
+      setTimeout(() => {
+        submitBtn.innerHTML = originalText;
+        submitBtn.style.pointerEvents = 'auto';
+        submitBtn.style.opacity = '1';
+      }, 2000);
+    }
   });
 }
 
@@ -456,3 +473,87 @@ window.addEventListener('load', () => {
   handleScrollAnimation();
 });
 
+// --- FEEDBACK FORM HANDLER ---
+const feedbackForm = document.getElementById('feedback-form');
+const testimonialsGrid = document.querySelector('.testimonials-grid');
+
+function addFeedbackToDOM(feedback) {
+  const stars = '★'.repeat(feedback.rating) + '☆'.repeat(5 - feedback.rating);
+  const card = document.createElement('div');
+  card.className = 'testimonial-card';
+  // To avoid styling issues if we use simple prepend without the quote styling:
+  card.innerHTML = `
+    <div class="testimonial-stars">${stars}</div>
+    <p class="testimonial-text">"${feedback.text}"</p>
+    <div class="testimonial-author">
+      <div class="author-avatar">${feedback.name.charAt(0).toUpperCase()}</div>
+      <div class="author-info">
+        <h4>${feedback.name}</h4>
+        <span>${feedback.location || 'Anonymous'}</span>
+      </div>
+    </div>
+  `;
+  if (testimonialsGrid) {
+    testimonialsGrid.prepend(card);
+  }
+}
+
+async function loadFeedbacks() {
+  try {
+    const q = query(collection(db, "feedbacks"), orderBy("timestamp", "asc"));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      addFeedbackToDOM(doc.data());
+    });
+  } catch (e) {
+    console.error("Error loading feedbacks from Firebase: ", e);
+    // Fallback or just ignore if firebase is not configured yet
+  }
+}
+
+if (feedbackForm) {
+  feedbackForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const submitBtn = feedbackForm.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = 'Submitting...';
+    submitBtn.disabled = true;
+
+    const name = document.getElementById('feedback-name').value;
+    const location = document.getElementById('feedback-location').value;
+    const rating = parseInt(document.getElementById('feedback-rating').value);
+    const text = document.getElementById('feedback-text').value;
+
+    const newFeedback = {
+      name,
+      location,
+      rating,
+      text,
+      timestamp: new Date()
+    };
+
+    try {
+      // Save to Firebase Firestore
+      await addDoc(collection(db, "feedbacks"), newFeedback);
+
+      // Add to DOM
+      addFeedbackToDOM(newFeedback);
+
+      // Reset form
+      feedbackForm.reset();
+      alert('Thank you for your feedback! It has been added.');
+    } catch (error) {
+      console.error("Error adding document: ", error);
+      alert("Error submitting feedback. Did you configure Firebase yet?");
+    } finally {
+      submitBtn.innerHTML = originalText;
+      submitBtn.disabled = false;
+    }
+  });
+}
+
+// Initialize feedbacks
+window.addEventListener('DOMContentLoaded', () => {
+  loadFeedbacks();
+});

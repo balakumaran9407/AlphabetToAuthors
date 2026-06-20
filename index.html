@@ -501,6 +501,39 @@
           </div>
         </div>
       </div>
+
+      <!-- Feedback Form Section -->
+      <div class="feedback-form-box" style="margin-top: 4rem; background-color: var(--color-bg-white); padding: 2.5rem; border-radius: var(--border-radius-lg); box-shadow: var(--shadow-sm); border: 1px solid rgba(226, 232, 240, 0.6);">
+        <h3 style="margin-bottom: 0.5rem; color: var(--color-primary-dark); font-size: 1.75rem;">Leave Your Feedback</h3>
+        <p style="margin-bottom: 2rem; color: var(--color-text-muted);">We value your thoughts! Share your experience with us.</p>
+        <form id="feedback-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="feedback-name">Your Name *</label>
+              <input type="text" id="feedback-name" required placeholder="e.g. Arun Kumar">
+            </div>
+            <div class="form-group">
+              <label for="feedback-location">Location (Optional)</label>
+              <input type="text" id="feedback-location" placeholder="e.g. Chennai">
+            </div>
+            <div class="form-group form-group-full">
+              <label for="feedback-rating">Rating *</label>
+              <select id="feedback-rating" required style="padding: 0.75rem; border-radius: var(--border-radius-sm); border: 1px solid var(--color-border); width: 100%; font-size: 1rem;">
+                <option value="5">★★★★★ (5/5 - Excellent)</option>
+                <option value="4">★★★★☆ (4/5 - Good)</option>
+                <option value="3">★★★☆☆ (3/5 - Average)</option>
+                <option value="2">★★☆☆☆ (2/5 - Poor)</option>
+                <option value="1">★☆☆☆☆ (1/5 - Terrible)</option>
+              </select>
+            </div>
+            <div class="form-group form-group-full">
+              <label for="feedback-text">Your Review *</label>
+              <textarea id="feedback-text" required placeholder="Share your experience..." style="min-height: 120px; padding: 1rem; border-radius: var(--border-radius-sm); border: 1px solid var(--color-border); width: 100%; resize: vertical; font-family: inherit;"></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Submit Feedback</button>
+        </form>
+      </div>
     </div>
   </section>
 
@@ -634,6 +667,6 @@
     </div>
   </footer>
 
-  <script src="app.js?v=3"></script>
+  <script type="module" src="app.js?v=3"></script>
 </body>
 </html>
