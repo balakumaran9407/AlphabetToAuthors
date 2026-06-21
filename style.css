@@ -2003,10 +2003,7 @@ footer {
     gap: 2.5rem;
   }
 
-  /* --- PLAYZONE MOBILE FIXES --- */
-  .playzone-page {
-    padding-top: 100px;
-  }
+
 
   .demo-tabs {
     flex-direction: column;
