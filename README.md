@@ -23,4 +23,5 @@ firebase deploy --only hosting
 ```
 
 ## Authors
-Created by Dhivyadharshini S & Sivaramakrishnan S
+* **Founders:** Dhivyadharshini S & Sivaramakrishnan S
+* **Developer:** Balakumaran T
