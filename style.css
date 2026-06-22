@@ -958,7 +958,7 @@ header .container {
   background-color: var(--color-accent-dark);
 }
 
-.founder-card h4 {
+.founder-card h3 {
   font-size: 1.25rem;
   margin-bottom: 0.25rem;
   color: var(--color-text-dark);
@@ -1054,7 +1054,7 @@ header .container {
   flex-shrink: 0;
 }
 
-.contact-text h4 {
+.contact-text h3 {
   font-size: 1rem;
   margin-bottom: 0.25rem;
   color: var(--color-text-dark);
@@ -1196,14 +1196,14 @@ footer {
   line-height: 1.6;
 }
 
-.footer-col h4 {
+.footer-col h3 {
   color: var(--color-bg-white);
   font-size: 1.15rem;
   position: relative;
   padding-bottom: 0.5rem;
 }
 
-.footer-col h4::after {
+.footer-col h3::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -1259,9 +1259,9 @@ footer {
 }
 
 @keyframes blob-animate {
-  0% { border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%; }
-  50% { border-radius: 37% 63% 51% 49% / 54% 43% 57% 46%; }
-  100% { border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%; }
+  0% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.05) rotate(5deg); }
+  100% { transform: scale(1) rotate(0deg); }
 }
 
 @keyframes fade-in {
@@ -1367,7 +1367,7 @@ footer {
   font-weight: bold;
 }
 
-.author-info h4 {
+.author-info h3 {
   font-size: 1rem;
   margin: 0;
   color: var(--color-text-dark);
@@ -1677,7 +1677,7 @@ input:focus, select:focus, textarea:focus {
   }
 
   /* Footer specifics */
-  .footer-col h4::after {
+  .footer-col h3::after {
     left: 50% !important;
     transform: translateX(-50%) !important;
   }

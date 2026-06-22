@@ -488,7 +488,7 @@ function addFeedbackToDOM(feedback) {
     <div class="testimonial-author">
       <div class="author-avatar">${feedback.name.charAt(0).toUpperCase()}</div>
       <div class="author-info">
-        <h4>${feedback.name}</h4>
+        <h3>${feedback.name}</h3>
         <span>${feedback.location || 'Anonymous'}</span>
       </div>
     </div>
@@ -510,7 +510,7 @@ async function loadFeedbacks() {
       addFeedbackToDOM(doc.data());
     });
   } catch (e) {
-    console.error("Error loading feedbacks from Firebase: ", e);
+    console.warn("Could not load feedbacks from Firebase: ", e);
     // Fallback or just ignore if firebase is not configured yet
   }
 }
@@ -548,7 +548,7 @@ if (feedbackForm) {
       feedbackForm.reset();
       alert('Thank you for your feedback! It has been added.');
     } catch (error) {
-      console.error("Error adding document: ", error);
+      console.warn("Error adding document: ", error);
       alert("Error submitting feedback. Did you configure Firebase yet?");
     } finally {
       submitBtn.innerHTML = originalText;

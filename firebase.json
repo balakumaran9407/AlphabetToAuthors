@@ -6,8 +6,20 @@
       "**/.*",
       "**/node_modules/**",
       "update_tagline.py",
+      "get_sizes.py",
       "New folder/**",
       ".git/**"
+    ],
+    "headers": [
+      {
+        "source": "**/*.@(jpg|jpeg|gif|png|webp|svg|css|js)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=31536000"
+          }
+        ]
+      }
     ]
   }
 }
