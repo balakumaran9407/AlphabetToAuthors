@@ -428,7 +428,7 @@ if (enrollmentForm) {
     const messageVal = document.getElementById('message').value || "None";
 
     // Format WhatsApp message text
-    const waMessage = `Hello Alphabets to Authors Team,\n\nI am reaching out to register for an upcoming course/demo session. Please find the registration details below:\n\n*Parent/Guardian Name:* ${parentName}\n*Participant's Name:* ${childName}\n*Participant's Age:* ${childAge} years\n*Selected Course:* ${selectedCourse}\n*Questions/Preferences:* ${messageVal}\n\nKindly confirm slot availability and further enrollment steps.\n\nThank you.`;
+    const waMessage = `Hello Alphabet to Authors Team,\n\nI am reaching out to register for an upcoming course/demo session. Please find the registration details below:\n\n*Parent/Guardian Name:* ${parentName}\n*Participant's Name:* ${childName}\n*Participant's Age:* ${childAge} years\n*Selected Course:* ${selectedCourse}\n*Questions/Preferences:* ${messageVal}\n\nKindly confirm slot availability and further enrollment steps.\n\nThank you.`;
 
     // URL encode message parameter
     const encodedText = encodeURIComponent(waMessage);
@@ -557,9 +557,22 @@ if (feedbackForm) {
   });
 }
 
-// Initialize feedbacks
+// Initialize feedbacks using IntersectionObserver to avoid Googlebot XHR timeout errors
 window.addEventListener('DOMContentLoaded', () => {
-  loadFeedbacks();
+  const reviewsSection = document.getElementById('reviews');
+  if (reviewsSection && window.IntersectionObserver) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          loadFeedbacks();
+          obs.disconnect(); // Stop observing once loaded
+        }
+      });
+    }, { rootMargin: "200px" });
+    observer.observe(reviewsSection);
+  } else {
+    loadFeedbacks(); // Fallback
+  }
 });
 
 // --- LOAD MORE REVIEWS HANDLER ---
