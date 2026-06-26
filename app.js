@@ -3,7 +3,7 @@ import { getFirestore, collection, addDoc, getDocs, query, orderBy } from "https
 
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDDR9GXXbr-EOQ51qtBmWLyOfNYzB6IwHw",
+  apiKey: "YOUR_API_KEY_HERE",
   authDomain: "alphabettoauthors.firebaseapp.com",
   projectId: "alphabettoauthors",
   storageBucket: "alphabettoauthors.firebasestorage.app",
